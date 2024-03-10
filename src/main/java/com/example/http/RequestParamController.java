@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class RequestParamController {
 
     @GetMapping("/param")
-    public String concat(@RequestParam String left, @RequestParam(required = false) String right) {
+    public String concat(@RequestParam String left, @RequestParam(required = false, defaultValue = "") String right) {
         return left.concat(right);
     }
 }
