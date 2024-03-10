@@ -4,13 +4,13 @@
 #    context-path: /test
 
 #http://localhost:8888/actuator/swagger-ui/index.html
-springdoc:
-  show-actuator: true
-  use-management-port: true
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-  server:
-    port: 8888
+#springdoc:
+#  show-actuator: true
+#  use-management-port: true
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: '*'
+#  server:
+#    port: 8888
