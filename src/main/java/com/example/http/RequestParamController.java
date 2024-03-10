@@ -24,4 +24,15 @@ public class RequestParamController {
 
         return result;
     }
+
+    @GetMapping("/param/compare")
+    public String compare(@RequestParam Integer left, @RequestParam Integer right) {
+        if (left > right) {
+            return "LEFT";
+        } else if (left < right) {
+            return "RIGHT";
+        } else {
+            return "EQUAL";
+        }
+    }
 }
