@@ -97,7 +97,7 @@ public class EntryController {
             existing.setStatus(entry.getStatus());
         }
 
-        return database.update(entry.getId(), entry);
+        return database.update(entry.getId(), existing);
     }
 
     @DeleteMapping("/entry/entries{id}")
