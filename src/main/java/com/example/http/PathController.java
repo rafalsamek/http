@@ -12,7 +12,7 @@ public class PathController {
         return name.toUpperCase();
     }
 
-    @GetMapping("/add/{a}/{b}")
+    @GetMapping("/path/add/{a}/{b}")
     public Integer add(@PathVariable int a, @PathVariable int b) {
         return a + b;
     }
