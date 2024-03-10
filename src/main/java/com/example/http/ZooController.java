@@ -1,5 +1,6 @@
 package com.example.http;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -62,7 +63,13 @@ public class ZooController {
 
     @GetMapping("/zoo/animals/{id}")
     public Animal get(@PathVariable Long id) {
-        return database.get(id);
+        Animal existing = database.get(id);
+
+        if (existing == null) {
+            throw new AnimalNotFound(id);
+        }
+
+        return existing;
     }
 
     @PostMapping("/zoo/animals")
@@ -73,11 +80,24 @@ public class ZooController {
 
     @PutMapping("/zoo/animals")
     public Animal update(@RequestBody Animal animal) {
+        Animal existing = database.get(animal.getId());
+
+        if (existing == null) {
+            throw new AnimalNotFound(animal.getId());
+        }
+
         return database.update(animal.getId(), animal);
     }
 
     @DeleteMapping("/zoo/animals/{id}")
     public void delete(@PathVariable Long id) {
         database.delete(id);
+    }
+}
+
+@ResponseStatus(HttpStatus.NOT_FOUND)
+class AnimalNotFound extends RuntimeException {
+    public AnimalNotFound(Long id) {
+        super("Animal with id " + id + " not found");
     }
 }
