@@ -47,16 +47,17 @@ class Entry {
 }
 
 @RestController
+@RequestMapping("/entry/entries")
 public class EntryController {
     private Database<Long, Entry> database = new Database<>();
     private long lastId = 0;
 
-    @GetMapping("/entry/entries")
+    @GetMapping
     public List<Entry> list() {
         return database.list();
     }
 
-    @GetMapping("/entry/entries/{id}")
+    @GetMapping("/{id}")
     public Entry get(@PathVariable Long id) {
         Entry existing = database.get(id);
 
@@ -67,14 +68,14 @@ public class EntryController {
         return existing;
     }
 
-    @PostMapping("/entry/entries")
+    @PostMapping
     public Entry create(@RequestBody Entry entry) {
         entry.setId(++lastId);
         entry.setStatus(EntryStatus.NEW);
         return database.create(entry.getId(), entry);
     }
 
-    @PutMapping("/entry/entries")
+    @PutMapping
     public Entry update(@RequestBody Entry entry) {
         Entry existing = database.get(entry.getId());
 
@@ -85,7 +86,7 @@ public class EntryController {
         return database.update(entry.getId(), entry);
     }
 
-    @PatchMapping("/entry/entries")
+    @PatchMapping
     public Entry updateStatus(@RequestBody Entry entry) {
         Entry existing = database.get(entry.getId());
 
@@ -100,7 +101,7 @@ public class EntryController {
         return database.update(entry.getId(), existing);
     }
 
-    @DeleteMapping("/entry/entries{id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         database.delete(id);
     }
