@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RequestHeaderController {
 
-    @GetMapping("/headers/secret")
+    @GetMapping(value = "/headers/secret", consumes = "text/plain")
     public String execute(@RequestHeader("Auth") String secret) {
+        // better to use message digest instead of equals
         if ("topSecretPassword123!".equals(secret)) {
             return "WORKING ON IT";
         } else {
