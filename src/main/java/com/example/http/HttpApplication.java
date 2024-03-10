@@ -4,6 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
+ * Web
+ * Ops/Actuator
+ *
  * localhost:8080/actuator
  */
 @SpringBootApplication

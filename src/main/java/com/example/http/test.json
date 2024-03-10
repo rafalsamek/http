@@ -1,0 +1,10 @@
+{
+  "enabled": true,
+  "name": "Mateusz",
+  "hobbies": [
+    "Cooking", "Games", "Programming"
+  ],
+  "computer": {
+    "address": "http://localhost:8080"
+  }
+}
