@@ -1,4 +1,4 @@
-package com.example.http;
+package com.example.http.communication;
 
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.springframework.web.bind.annotation.GetMapping;

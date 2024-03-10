@@ -1,4 +1,4 @@
-package com.example.http;
+package com.example.http.communication;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
