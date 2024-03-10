@@ -27,9 +27,9 @@ public class ErrorPlayground {
         throw new RuntimeException();
     }
 
-    @ResponseStatus(HttpStatus.BAD_GATEWAY)
-    @ExceptionHandler(RuntimeException.class)
-    public String handle(RuntimeException e) {
-        return "Ups something went wrong";
-    }
+//    @ResponseStatus(HttpStatus.BAD_GATEWAY)
+//    @ExceptionHandler(RuntimeException.class)
+//    public String handle(RuntimeException e) {
+//        return "Ups something went wrong";
+//    }
 }
