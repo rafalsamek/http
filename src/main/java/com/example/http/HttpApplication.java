@@ -6,6 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * Web
  * Ops/Actuator
+ * postman, bruno, intellij http client
+ * openapi
  *
  * localhost:8080/actuator
  */
