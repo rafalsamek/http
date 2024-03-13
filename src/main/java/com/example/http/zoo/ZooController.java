@@ -1,6 +1,7 @@
 package com.example.http.zoo;
 
 import com.example.http.Database;
+import com.example.http.exceptions.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -67,7 +68,7 @@ public class ZooController {
         Animal existing = database.get(id);
 
         if (existing == null) {
-            throw new AnimalNotFound(id);
+            throw new AnimalNotFoundException(id);
         }
 
         return existing;
@@ -84,7 +85,7 @@ public class ZooController {
         Animal existing = database.get(animal.getId());
 
         if (existing == null) {
-            throw new AnimalNotFound(animal.getId());
+            throw new AnimalNotFoundException(animal.getId());
         }
 
         return database.update(animal.getId(), animal);
@@ -97,8 +98,8 @@ public class ZooController {
 }
 
 @ResponseStatus(HttpStatus.NOT_FOUND)
-class AnimalNotFound extends RuntimeException {
-    public AnimalNotFound(Long id) {
+class AnimalNotFoundException extends NotFoundException {
+    public AnimalNotFoundException(Long id) {
         super("Animal with id " + id + " not found");
     }
 }

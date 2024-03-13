@@ -1,4 +1,4 @@
-package com.example.http;
+package com.example.http.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class ExceptionHandlerController {
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler(EntryNotFound.class)
-    public String handle(EntryNotFound e) {
-        return "Entry not found";
+    @ExceptionHandler(NotFoundException.class)
+    public String handle(NotFoundException e) {
+        return e.getMessage();
     }
 
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
